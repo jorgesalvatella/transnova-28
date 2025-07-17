@@ -2,7 +2,6 @@
   <header class="header-nav">
     <nav class="navbar">
       <div class="nav-container">
-        <!-- Logo -->
         <div class="nav-logo">
           <img
             src="https://imagenes.transnova28.com.mx/tranpo.png"
@@ -12,7 +11,6 @@
           <span class="logo-text">Transnova 28</span>
         </div>
 
-        <!-- Desktop Navigation -->
         <ul class="nav-menu" :class="{ active: isMenuOpen }">
           <li class="nav-item">
             <a href="#inicio" class="nav-link" @click="closeMenu">Inicio</a>
@@ -31,7 +29,6 @@
           </li>
         </ul>
 
-        <!-- Mobile Menu Toggle -->
         <div class="nav-toggle" @click="toggleMenu" :class="{ active: isMenuOpen }">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -155,7 +152,7 @@ export default {
 
 .btn-quote {
   background: white;
-  color: linear-gradient(135deg, #404b69 0%, #2a3550 100%);
+  color: #2a3550; /* Simplificado para mejor compatibilidad */
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
@@ -164,7 +161,7 @@ export default {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(64, 75, 105, 0.3);
-  text-decoration: none;
+  text-decoration: none; /* Se añadió por si acaso */
 }
 
 .btn-quote:hover {
@@ -182,7 +179,7 @@ export default {
 .bar {
   width: 25px;
   height: 3px;
-  background: #2a3550;
+  background: white; /* Mejor contraste */
   margin: 3px 0;
   transition: 0.3s;
   border-radius: 2px;
@@ -207,8 +204,7 @@ export default {
     left: -100%;
     top: 70px;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
+    background: #404b69; /* CAMBIO: Fondo del menú móvil */
     width: 100%;
     text-align: center;
     transition: 0.3s;
@@ -219,6 +215,19 @@ export default {
 
   .nav-menu.active {
     left: 0;
+  }
+
+  /* CAMBIO: Estilos para los enlaces dentro del menú móvil */
+  .nav-menu .nav-link {
+    color: white;
+  }
+
+  .nav-menu .nav-link:hover {
+    color: #cccccc; /* Color más claro para el hover */
+  }
+
+  .nav-menu .nav-link::after {
+    background: white; /* Línea de hover blanca */
   }
 
   .nav-toggle {
