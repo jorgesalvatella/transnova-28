@@ -11,6 +11,14 @@
 
       <!-- Services Grid -->
       <div class="services-grid">
+        <!-- Imagen decorativa de almacén -->
+        <div class="services-image-container">
+          <img
+            :src="IMAGE_URLS.URL_FOTO_ALMACEN_DISTRIBUCION"
+            alt="Almacén moderno de distribución"
+            class="services-image glass-transport"
+          />
+        </div>
         <div
           v-for="(service, index) in services"
           :key="service.id"
@@ -73,10 +81,13 @@
 </template>
 
 <script>
+import { IMAGE_URLS } from '@/constants/images'
+
 export default {
   name: 'ServicesSection',
   data() {
     return {
+      IMAGE_URLS,
       hoveredCard: null,
       services: [
         {
@@ -221,6 +232,25 @@ export default {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
+  position: relative;
+}
+
+/* Services Image Container */
+.services-image-container {
+  position: absolute;
+  top: -80px;
+  right: -100px;
+  width: 300px;
+  height: 200px;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.services-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
 }
 
 .service-card {
@@ -424,6 +454,10 @@ export default {
   .services-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+  
+  .services-image-container {
+    display: none;
   }
 
   .service-card {

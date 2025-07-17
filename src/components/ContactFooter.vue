@@ -2,6 +2,14 @@
   <div>
     <!-- Contact Section -->
     <section class="contact-section" id="contacto">
+      <!-- Imagen flotante decorativa -->
+      <div class="floating-image-container">
+        <img
+          :src="IMAGE_URLS.URL_FOTO_TECNOLOGIA_RASTREO"
+          alt="Tecnología de rastreo GPS"
+          class="floating-image neon-transport"
+        />
+      </div>
       <div class="contact-container">
         <div class="contact-content">
           <div class="contact-info">
@@ -372,10 +380,13 @@
 </template>
 
 <script>
+import { IMAGE_URLS } from '@/constants/images'
+
 export default {
   name: 'ContactFooter',
   data() {
     return {
+      IMAGE_URLS,
       form: {
         name: '',
         email: '',
@@ -456,6 +467,36 @@ export default {
   padding: 6rem 0;
   background: linear-gradient(135deg, #404b69 0%, #2a3550 100%);
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating Image Container */
+.floating-image-container {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 250px;
+  height: 180px;
+  z-index: 1;
+  opacity: 0.6;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .contact-container {
@@ -530,10 +571,32 @@ export default {
 
 /* Contact Form */
 .contact-form-container {
-  background: white;
+  background-image: url('https://imagenes.transnova28.com.mx/Transporte%20Logistico/WhatsApp%20Image%202025-07-16%20at%2017.59.44%20(4).jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 20px;
   padding: 2.5rem;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.contact-form {
+  position: relative;
+  z-index: 2;
 }
 
 .form-header {
@@ -815,6 +878,10 @@ export default {
   .contact-content {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+  
+  .floating-image-container {
+    display: none;
   }
 
   .section-title {

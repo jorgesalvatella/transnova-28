@@ -5,6 +5,14 @@
       <div class="company-story">
         <div class="story-content">
           <div class="story-text">
+            <!-- Imagen del equipo/oficina -->
+            <div class="about-image-container">
+              <img
+                :src="IMAGE_URLS.URL_FOTO_EQUIPO_OFICINA"
+                alt="Equipo profesional de Transnova 28"
+                class="about-image holographic-transport"
+              />
+            </div>
             <div class="section-badge">Nuestra Historia</div>
             <h2 class="section-title">
               Conectando México con
@@ -101,10 +109,13 @@
 </template>
 
 <script>
+import { IMAGE_URLS } from '@/constants/images'
+
 export default {
   name: 'AboutSection',
   data() {
     return {
+      IMAGE_URLS,
       activeMilestone: 0,
       hoveredMember: null,
       milestones: [
@@ -289,6 +300,25 @@ export default {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  position: relative;
+}
+
+/* About Image Container */
+.about-image-container {
+  position: absolute;
+  top: -50px;
+  left: -80px;
+  width: 220px;
+  height: 160px;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
 }
 
 .section-badge {
@@ -624,6 +654,10 @@ export default {
   .story-content {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+  
+  .about-image-container {
+    display: none;
   }
 
   .section-title {

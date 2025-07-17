@@ -30,6 +30,22 @@
 
         <div class="hero-visual">
           <div class="visual-container">
+            <!-- Imagen Principal de Camión Logístico -->
+            <div class="hero-image-container">
+              <img
+                :src="IMAGE_URLS.URL_FOTO_CAMION_LOGISTICO"
+                alt="Camión logístico moderno"
+                class="hero-main-image futuristic-trailer"
+              />
+              <div class="image-overlay">
+                <div class="tech-elements">
+                  <div class="tech-dot"></div>
+                  <div class="tech-dot"></div>
+                  <div class="tech-dot"></div>
+                </div>
+              </div>
+            </div>
+
             <!-- Camión animado -->
             <div class="truck-animation">
               <svg class="truck-svg" viewBox="0 0 200 100" fill="none">
@@ -95,8 +111,15 @@
 </template>
 
 <script>
+import { IMAGE_URLS } from '@/constants/images'
+
 export default {
   name: 'HeroSection',
+  data() {
+    return {
+      IMAGE_URLS,
+    }
+  },
 }
 </script>
 
@@ -226,6 +249,58 @@ export default {
   position: relative;
   height: 400px;
   width: 100%;
+}
+
+/* Hero Image Container */
+.hero-image-container {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 350px;
+  height: 240px;
+  z-index: 3;
+}
+
+.hero-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(64, 75, 105, 0.1), transparent);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-elements {
+  display: flex;
+  gap: 12px;
+  opacity: 0.7;
+}
+
+.tech-dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(64, 75, 105, 0.8);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.tech-dot:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.tech-dot:nth-child(3) {
+  animation-delay: 1s;
 }
 
 .truck-animation {
@@ -411,7 +486,7 @@ export default {
 
 @keyframes routeFlow {
   0% {
-    opacity: 0.3;
+    opacity: 0.6;
     transform: scaleX(0);
   }
   50% {
@@ -419,7 +494,7 @@ export default {
     transform: scaleX(1);
   }
   100% {
-    opacity: 0.3;
+    opacity: 0.6;
     transform: scaleX(0);
   }
 }
@@ -461,6 +536,10 @@ export default {
   }
 
   .visual-container {
+    display: none;
+  }
+
+  .hero-image-container {
     display: none;
   }
 
