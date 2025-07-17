@@ -76,7 +76,7 @@ export default {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
+  background: #404b69;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -92,13 +92,13 @@ export default {
   padding: 0 1rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .nav-logo {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-right: 2rem;
 }
 
 .logo-img {
@@ -111,7 +111,7 @@ export default {
 .logo-text {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2a3550;
+  color: white;
   letter-spacing: -0.5px;
 }
 
@@ -125,16 +125,17 @@ export default {
 }
 
 .nav-link {
-  color: #2a3550;
+  color: whitesmoke;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
   transition: color 0.3s ease;
   position: relative;
+  margin-left: 1rem;
 }
 
 .nav-link:hover {
-  color: #404b69;
+  color: black;
 }
 
 .nav-link::after {
@@ -153,8 +154,8 @@ export default {
 }
 
 .btn-quote {
-  background: linear-gradient(135deg, #404b69 0%, #2a3550 100%);
-  color: white;
+  background: white;
+  color: linear-gradient(135deg, #404b69 0%, #2a3550 100%);
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
@@ -163,6 +164,7 @@ export default {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(64, 75, 105, 0.3);
+  text-decoration: none;
 }
 
 .btn-quote:hover {
