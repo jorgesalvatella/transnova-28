@@ -297,19 +297,6 @@
             </ul>
           </div>
 
-          <!-- Services -->
-          <div class="footer-section">
-            <h4 class="footer-title">Servicios</h4>
-            <ul class="footer-links">
-              <li><a href="#">Transporte Terrestre</a></li>
-              <li><a href="#">Almacenamiento</a></li>
-              <li><a href="#">Distribución</a></li>
-              <li><a href="#">Logística Integral</a></li>
-              <li><a href="#">Transporte Especializado</a></li>
-              <li><a href="#">Rastreo GPS</a></li>
-            </ul>
-          </div>
-
           <!-- Contact Info -->
           <div class="footer-section">
             <h4 class="footer-title">Contacto</h4>
@@ -326,7 +313,7 @@
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <span>Av. Insurgentes 1234<br />CDMX, México</span>
+                <span>Quintana Roo <br />Jalisco<br />CDMX, México</span>
               </div>
               <div class="contact-item">
                 <svg
@@ -341,7 +328,7 @@
                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
                   ></path>
                 </svg>
-                <span>+52 (55) 1234-5678</span>
+                <span>+52 (984) 203 95-35</span>
               </div>
               <div class="contact-item">
                 <svg
@@ -357,7 +344,7 @@
                   ></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
-                <span>info@transnova28.com.mx</span>
+                <span>admon@transnova28.com.mx</span>
               </div>
             </div>
           </div>
