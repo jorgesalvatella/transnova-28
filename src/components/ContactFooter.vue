@@ -84,8 +84,8 @@
                 </div>
                 <div class="method-info">
                   <h4>Oficina Central</h4>
-                  <p>Av. Insurgentes 1234, CDMX</p>
-                  <span>Col. Roma Norte, 06700</span>
+                  <p>Jalisco, Jalisco</p>
+                  <
                 </div>
               </div>
             </div>
