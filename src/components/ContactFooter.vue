@@ -2,12 +2,12 @@
   <div>
     <!-- Contact Section -->
     <section class="contact-section" id="contacto">
-      <!-- Imagen flotante decorativa -->
-      <div class="floating-image-container">
+      <!-- Imagen decorativa fija -->
+      <div class="contact-decorative-container">
         <img
           :src="IMAGE_URLS.URL_FOTO_TECNOLOGIA_RASTREO"
           alt="Tecnología de rastreo GPS"
-          class="floating-image neon-transport"
+          class="contact-decorative-image transport-image"
         />
       </div>
       <div class="contact-container">
@@ -471,32 +471,36 @@ export default {
   overflow: hidden;
 }
 
-/* Floating Image Container */
-.floating-image-container {
+/* Contact Decorative Image */
+.contact-decorative-container {
   position: absolute;
-  top: 20%;
-  left: 5%;
-  width: 250px;
-  height: 180px;
+  top: 10%;
+  right: 5%;
+  width: 300px;
+  height: 200px;
   z-index: 1;
-  opacity: 0.6;
-  animation: float 6s ease-in-out infinite;
 }
 
-.floating-image {
+.contact-decorative-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 5px 15px rgba(64, 75, 105, 0.2);
+  transition: all 0.3s ease;
+  left: 60px;
+  top: 200px;
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+.contact-decorative-image:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.4),
+    0 8px 20px rgba(64, 75, 105, 0.3);
 }
 
 .contact-container {
@@ -532,6 +536,8 @@ export default {
   opacity: 0.9;
   line-height: 1.6;
   margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
 }
 
 .contact-methods {
@@ -879,9 +885,12 @@ export default {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
-  .floating-image-container {
-    display: none;
+
+  .contact-decorative-container {
+    width: 250px;
+    height: 160px;
+    top: 8%;
+    right: 3%;
   }
 
   .section-title {
@@ -919,6 +928,10 @@ export default {
   .footer-content {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .contact-decorative-container {
+    display: none;
   }
 }
 </style>

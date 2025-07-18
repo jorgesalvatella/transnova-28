@@ -306,12 +306,11 @@ export default {
 /* About Image Container */
 .about-image-container {
   position: absolute;
-  top: -50px;
-  left: -80px;
-  width: 220px;
-  height: 160px;
+  top: -40px;
+  left: -60px;
+  width: 200px;
+  height: 140px;
   z-index: 1;
-  opacity: 0.7;
 }
 
 .about-image {
@@ -319,6 +318,17 @@ export default {
   height: 100%;
   object-fit: cover;
   border-radius: 16px;
+  border: 2px solid rgba(64, 75, 105, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  top: -150px;
+  left: 50px;
+}
+
+.about-image:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(64, 75, 105, 0.5);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
 }
 
 .section-badge {
@@ -353,6 +363,7 @@ export default {
   color: #666;
   line-height: 1.7;
   margin-bottom: 2rem;
+  z-index: 2;
 }
 
 .story-highlights {
@@ -655,7 +666,7 @@ export default {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .about-image-container {
     display: none;
   }

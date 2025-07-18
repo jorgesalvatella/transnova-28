@@ -13,8 +13,8 @@
             confiables. Conectamos tu negocio con el mundo.
           </p>
           <div class="hero-buttons">
-            <button class="btn-primary">
-              <span>Nuestros Servicios</span>
+            <a href="https://wa.me/5219842039535" class="btn-primary" target="_blank">
+              <span>Solicitar Información</span>
               <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M7 17L17 7M17 7H7M17 7V17"
@@ -24,7 +24,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-            </button>
+            </a>
           </div>
         </div>
 

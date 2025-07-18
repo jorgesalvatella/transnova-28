@@ -47,8 +47,8 @@
             </li>
           </ul>
           <div class="service-action">
-            <button class="btn-service">
-              Más Información
+            <a href="https://wa.me/5219842039535" class="btn-service" target="_blank">
+              Solicitar Información
               <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M7 17L17 7M17 7H7M17 7V17"
@@ -58,7 +58,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -238,19 +238,27 @@ export default {
 /* Services Image Container */
 .services-image-container {
   position: absolute;
-  top: -80px;
-  right: -100px;
-  width: 300px;
-  height: 200px;
+  top: -150px;
+  right: -80px;
+  width: 280px;
+  height: 180px;
   z-index: 1;
-  opacity: 0.6;
 }
 
 .services-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 24px;
+  border-radius: 18px;
+  border: 2px solid rgba(64, 75, 105, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.services-image:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(64, 75, 105, 0.5);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .service-card {
@@ -261,6 +269,7 @@ export default {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  z-index: 2;
 }
 
 .service-card::before {
@@ -455,7 +464,7 @@ export default {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .services-image-container {
     display: none;
   }

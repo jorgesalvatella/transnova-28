@@ -141,7 +141,6 @@ html {
 
 /* Futuristic Transport Image Classes */
 .transport-image {
-  opacity: 0.85;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -163,7 +162,6 @@ html {
 }
 
 .transport-image:hover {
-  opacity: 1;
   transform: scale(1.02);
   box-shadow: 0 15px 35px rgba(64, 75, 105, 0.3);
   border-color: rgba(64, 75, 105, 0.4);
@@ -179,7 +177,6 @@ html {
   backdrop-filter: blur(15px);
   border: 2px solid rgba(64, 75, 105, 0.3);
   border-radius: 20px;
-  opacity: 0.9;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -198,7 +195,6 @@ html {
 }
 
 .futuristic-trailer:hover {
-  opacity: 1;
   transform: translateY(-8px) scale(1.03);
   box-shadow: 
     0 25px 50px rgba(64, 75, 105, 0.25),
@@ -216,7 +212,6 @@ html {
   backdrop-filter: blur(12px);
   border: 1px solid rgba(64, 75, 105, 0.2);
   border-radius: 16px;
-  opacity: 0.8;
   position: relative;
   overflow: hidden;
   transition: all 0.4s ease;
@@ -243,7 +238,6 @@ html {
 }
 
 .holographic-transport:hover {
-  opacity: 1;
   transform: scale(1.05);
   box-shadow: 0 20px 40px rgba(64, 75, 105, 0.3);
 }
@@ -259,13 +253,11 @@ html {
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 24px;
-  opacity: 0.85;
   transition: all 0.4s ease;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .glass-transport:hover {
-  opacity: 1;
   background: rgba(255, 255, 255, 0.25);
   border-color: rgba(64, 75, 105, 0.4);
   transform: translateY(-5px);
@@ -274,7 +266,6 @@ html {
 
 /* Neon Glow Effect */
 .neon-transport {
-  opacity: 0.9;
   border-radius: 18px;
   position: relative;
   transition: all 0.4s ease;
@@ -282,7 +273,6 @@ html {
 }
 
 .neon-transport:hover {
-  opacity: 1;
   transform: scale(1.02);
   filter: 
     drop-shadow(0 0 20px rgba(64, 75, 105, 0.5))

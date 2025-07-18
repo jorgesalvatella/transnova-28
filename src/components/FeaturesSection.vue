@@ -34,6 +34,14 @@
           </div>
           
           <div class="benefits-visual">
+            <!-- Imagen decorativa del almacén -->
+            <div class="decorative-image-container">
+              <img
+                :src="IMAGE_URLS.URL_FOTO_ALMACEN_DISTRIBUCION"
+                alt="Almacén moderno de distribución"
+                class="decorative-image transport-image"
+              />
+            </div>
             <div class="visual-chart">
               <!-- Animated chart representation -->
               <div class="chart-container">
@@ -96,6 +104,15 @@
           Un flujo de trabajo optimizado que garantiza resultados excepcionales
         </p>
         
+        <!-- Imagen decorativa central -->
+        <div class="process-image-container">
+          <img
+            :src="IMAGE_URLS.URL_FOTO_TECNOLOGIA_RASTREO"
+            alt="Tecnología de rastreo GPS"
+            class="process-image glass-transport"
+          />
+        </div>
+        
         <div class="process-timeline">
           <div 
             v-for="(step, index) in processSteps" 
@@ -117,10 +134,13 @@
 </template>
 
 <script>
+import { IMAGE_URLS } from '@/constants/images'
+
 export default {
   name: 'FeaturesSection',
   data() {
     return {
+      IMAGE_URLS,
       activeBenefit: 0,
       hoveredFeature: null,
       activeStep: 0,
@@ -376,8 +396,34 @@ export default {
 
 .benefits-visual {
   display: flex;
+  flex-direction: column;
+  gap: 2rem;
   justify-content: center;
   align-items: center;
+}
+
+/* Decorative Image */
+.decorative-image-container {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.decorative-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 2px solid rgba(64, 75, 105, 0.2);
+  transition: all 0.3s ease;
+}
+
+.decorative-image:hover {
+  transform: scale(1.02);
+  border-color: rgba(64, 75, 105, 0.4);
 }
 
 .visual-chart {
@@ -503,6 +549,27 @@ export default {
   text-align: center;
 }
 
+/* Process Image */
+.process-image-container {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.process-image {
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 2px solid rgba(64, 75, 105, 0.3);
+  transition: all 0.4s ease;
+}
+
+.process-image:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(64, 75, 105, 0.5);
+}
+
 .process-timeline {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -580,6 +647,16 @@ export default {
   .chart-container {
     height: 150px;
   }
+  
+  .decorative-image-container {
+    max-width: 250px;
+    height: 160px;
+  }
+  
+  .process-image {
+    width: 240px;
+    height: 150px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -593,6 +670,16 @@ export default {
   
   .feature-card {
     padding: 1.5rem;
+  }
+  
+  .decorative-image-container {
+    max-width: 200px;
+    height: 130px;
+  }
+  
+  .process-image {
+    width: 200px;
+    height: 120px;
   }
 }
 </style>
