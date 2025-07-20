@@ -94,7 +94,7 @@
           <div class="contact-form-container">
             <form class="contact-form" @submit.prevent="submitForm">
               <div class="form-header">
-                <h3>Contácanos</h3>
+                <h3>Contáctanos</h3>
                 <p>Completa el formulario y te contactaremos en menos de 24 horas</p>
               </div>
 
