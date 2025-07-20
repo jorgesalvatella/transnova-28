@@ -13,7 +13,7 @@
             confiables. Conectamos tu negocio con el mundo.
           </p>
           <div class="hero-buttons">
-            <a href="https://wa.me/5219842039535" class="btn-primary" target="_blank">
+            <button @click="openContactModal" class="btn-primary">
               <span>Solicitar Información</span>
               <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path
@@ -24,7 +24,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
 
@@ -107,19 +107,34 @@
       <div class="bg-gradient"></div>
       <div class="bg-pattern"></div>
     </div>
+    
+    <ContactModal :isOpen="isContactModalOpen" @close="closeContactModal" />
   </section>
 </template>
 
 <script>
 import { IMAGE_URLS } from '@/constants/images'
+import ContactModal from './ContactModal.vue'
 
 export default {
   name: 'HeroSection',
+  components: {
+    ContactModal
+  },
   data() {
     return {
       IMAGE_URLS,
+      isContactModalOpen: false
     }
   },
+  methods: {
+    openContactModal() {
+      this.isContactModalOpen = true
+    },
+    closeContactModal() {
+      this.isContactModalOpen = false
+    }
+  }
 }
 </script>
 

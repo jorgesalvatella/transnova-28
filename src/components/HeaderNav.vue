@@ -22,10 +22,7 @@
             <a href="#nosotros" class="nav-link" @click="closeMenu">Nosotros</a>
           </li>
           <li class="nav-item">
-            <a href="#contacto" class="nav-link" @click="closeMenu">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://wa.me/5219842039535" class="btn-quote" target="_blank">Cotizar</a>
+            <a href="#contacto" class="nav-link" @click="handleContactClick">Contacto</a>
           </li>
         </ul>
 
@@ -36,15 +33,23 @@
         </div>
       </div>
     </nav>
+    
+    <ContactModal :isOpen="isContactModalOpen" @close="closeContactModal" />
   </header>
 </template>
 
 <script>
+import ContactModal from './ContactModal.vue'
+
 export default {
   name: 'HeaderNav',
+  components: {
+    ContactModal
+  },
   data() {
     return {
       isMenuOpen: false,
+      isContactModalOpen: false
     }
   },
   methods: {
@@ -54,6 +59,17 @@ export default {
     closeMenu() {
       this.isMenuOpen = false
     },
+    handleContactClick(e) {
+      e.preventDefault()
+      this.closeMenu()
+      this.openContactModal()
+    },
+    openContactModal() {
+      this.isContactModalOpen = true
+    },
+    closeContactModal() {
+      this.isContactModalOpen = false
+    }
   },
   mounted() {
     // Close menu when clicking outside
@@ -150,24 +166,6 @@ export default {
   width: 100%;
 }
 
-.btn-quote {
-  background: white;
-  color: #2a3550; /* Simplificado para mejor compatibilidad */
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(64, 75, 105, 0.3);
-  text-decoration: none; /* Se añadió por si acaso */
-}
-
-.btn-quote:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(64, 75, 105, 0.4);
-}
 
 .nav-toggle {
   display: none;
@@ -232,10 +230,6 @@ export default {
 
   .nav-toggle {
     display: flex;
-  }
-
-  .btn-quote {
-    margin-top: 1rem;
   }
 }
 

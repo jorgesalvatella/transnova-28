@@ -47,18 +47,21 @@
             </li>
           </ul>
           <div class="service-action">
-            <a href="https://wa.me/5219842039535" class="btn-service" target="_blank">
-              Solicitar Información
-              <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M7 17L17 7M17 7H7M17 7V17"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
+            <button @click="openContactModal" @click.native="openContactModal" onclick="console.log('CLICK NATIVO DETECTADO')" class="btn-modern-service">
+              <span class="btn-text">Solicitar Información</span>
+              <div class="btn-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div class="btn-ripple"></div>
+            </button>
           </div>
         </div>
       </div>
@@ -71,17 +74,26 @@
             Contáctanos para diseñar un plan logístico que se adapte perfectamente a las necesidades
             de tu empresa
           </p>
-          <a href="https://wa.me/5219842039535" class="btn-cta" target="_blank"
-            >Solicitar Cotización</a
-          >
+          <button @click="openContactModal" @click.native="openContactModal" onclick="console.log('CLICK CTA NATIVO DETECTADO')" class="btn-modern-cta">
+            <span class="btn-glow"></span>
+            <span class="btn-text">Solicitar Cotización</span>
+            <div class="btn-particles">
+              <span class="particle"></span>
+              <span class="particle"></span>
+              <span class="particle"></span>
+            </div>
+          </button>
         </div>
       </div>
     </div>
+    
+    <ContactModal :isOpen="isContactModalOpen" @close="closeContactModal" />
   </section>
 </template>
 
 <script>
 import { IMAGE_URLS } from '@/constants/images'
+import ContactModal from './ContactModal.vue'
 
 export default {
   name: 'ServicesSection',
@@ -89,6 +101,7 @@ export default {
     return {
       IMAGE_URLS,
       hoveredCard: null,
+      isContactModalOpen: false,
       services: [
         {
           id: 1,
@@ -136,6 +149,7 @@ export default {
     }
   },
   components: {
+    ContactModal,
     TruckIcon: {
       template: `
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -191,6 +205,17 @@ export default {
       `,
     },
   },
+  methods: {
+    openContactModal() {
+      console.log('🚀 openContactModal clicked in ServicesSection!')
+      this.isContactModalOpen = true
+      console.log('📋 Modal state:', this.isContactModalOpen)
+    },
+    closeContactModal() {
+      console.log('❌ closeContactModal called')
+      this.isContactModalOpen = false
+    }
+  }
 }
 </script>
 
@@ -372,45 +397,78 @@ export default {
   margin-top: auto;
 }
 
-.btn-service {
-  background: transparent;
-  color: #404b69;
-  border: 2px solid #404b69;
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px;
+/* Botón moderno para servicios */
+.btn-modern-service {
+  position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 16px;
+  padding: 14px 28px;
+  color: white;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  width: fit-content;
+  gap: 10px;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+  transform: translateY(0);
 }
 
-.btn-service:hover {
-  background: #404b69;
-  color: white;
-  transform: translateX(5px);
+.btn-modern-service:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(102, 126, 234, 0.4);
 }
 
-.service-card.featured .btn-service {
-  background: white;
-  color: #404b69;
-  border-color: white;
+.btn-modern-service:active {
+  transform: translateY(-2px) scale(0.98);
 }
 
-.service-card.featured .btn-service:hover {
-  background: rgba(255, 255, 255, 0.9);
-  transform: translateX(5px);
-}
-
-.arrow-icon {
+.btn-modern-service .btn-text {
+  position: relative;
+  z-index: 2;
   transition: transform 0.3s ease;
 }
 
-.btn-service:hover .arrow-icon {
-  transform: translateX(3px);
+.btn-modern-service .btn-icon {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.btn-modern-service:hover .btn-icon {
+  transform: translateX(4px) rotate(45deg);
+}
+
+.btn-modern-service .btn-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-modern-service:hover .btn-ripple {
+  width: 300px;
+  height: 300px;
+}
+
+/* Estilo para tarjeta destacada */
+.service-card.featured .btn-modern-service {
+  background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+  box-shadow: 0 8px 32px rgba(255, 234, 167, 0.4);
+}
+
+.service-card.featured .btn-modern-service:hover {
+  box-shadow: 0 16px 48px rgba(255, 234, 167, 0.6);
 }
 
 .services-cta {
@@ -436,22 +494,101 @@ export default {
   margin-right: auto;
 }
 
-.btn-cta {
-  background: white;
-  color: #404b69;
+/* Botón CTA súper elegante */
+.btn-modern-cta {
+  position: relative;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
   border: none;
-  padding: 1rem 2rem;
-  border-radius: 25px;
-  font-weight: 600;
-  font-size: 1rem;
+  border-radius: 20px;
+  padding: 18px 36px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  box-shadow: 0 12px 40px rgba(255, 107, 107, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.btn-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+.btn-modern-cta:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 20px 60px rgba(255, 107, 107, 0.5);
+}
+
+.btn-modern-cta:active {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.btn-modern-cta .btn-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+}
+
+.btn-modern-cta:hover .btn-glow {
+  left: 100%;
+}
+
+.btn-modern-cta .btn-text {
+  position: relative;
+  z-index: 2;
+  display: block;
+}
+
+.btn-modern-cta .btn-particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-modern-cta .particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleFloat 2s infinite ease-in-out;
+}
+
+.btn-modern-cta .particle:nth-child(1) {
+  top: -20px;
+  left: -15px;
+  animation-delay: 0s;
+}
+
+.btn-modern-cta .particle:nth-child(2) {
+  top: -25px;
+  left: 10px;
+  animation-delay: 0.7s;
+}
+
+.btn-modern-cta .particle:nth-child(3) {
+  top: -20px;
+  left: 25px;
+  animation-delay: 1.4s;
+}
+
+.btn-modern-cta:hover .particle {
+  animation-play-state: running;
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-30px) scale(1);
+  }
 }
 
 /* Mobile Styles */
